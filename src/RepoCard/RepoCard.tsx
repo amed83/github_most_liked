@@ -17,37 +17,33 @@ const RepoCard: FC<RepoProps> = ({
   stars,
   addToFavourite,
   isFavourite,
-}) => {
-  return (
-    <Card>
-      <CardContent>
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Typography variant="h4">{name}</Typography>
-          <Box
-            style={{ padding: "1rem", display: "flex", alignItems: "center" }}
-          >
-            <StarIcon /> {stars}
-          </Box>
-          <IconButton onClick={() => addToFavourite(id)}>
-            <FavoriteIcon sx={{ color: isFavourite ? "red" : "primary" }} />
-          </IconButton>
+}) => (
+  <Card>
+    <CardContent>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Typography variant="h4">{name}</Typography>
+        <Box style={{ padding: "1rem", display: "flex", alignItems: "center" }}>
+          <StarIcon /> {stars}
         </Box>
-        {description && (
-          <Typography variant="subtitle1"> ({description})</Typography>
-        )}
+        <IconButton onClick={() => addToFavourite(id)}>
+          <FavoriteIcon sx={{ color: isFavourite ? "red" : "primary" }} />
+        </IconButton>
+      </Box>
+      {description && (
+        <Typography variant="subtitle1"> ({description})</Typography>
+      )}
 
-        <Link href={link} target="_blank">
-          {link}
-        </Link>
-      </CardContent>
-    </Card>
-  );
-};
+      <Link href={link} target="_blank">
+        {link}
+      </Link>
+    </CardContent>
+  </Card>
+);
 
 export default RepoCard;
